@@ -1,0 +1,50 @@
+{
+  "name": "phet-lib",
+  "version": "0.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phetsims/phet-lib.git"
+  },
+  "devDependencies": {
+    "grunt": "~1.5.3"
+  },
+  "phet": {
+    "supportedBrands": [
+      "phet",
+      "adapted-from-phet"
+    ],
+    "requirejsNamespace": "PHET_LIB",
+    "buildStandalone": true,
+    "requiresLodash": false,
+    "requiresJQuery": false,
+    "assignGlobals": {
+      "scenery": "SCENERY/main",
+      "phet-lib": "main",
+      "kite": "KITE/main",
+      "dot": "DOT/main",
+      "axon": "AXON/main",
+      "phetCore": "PHET_CORE/main",
+      "utteranceQueue": "UTTERANCE_QUEUE/main"
+    },
+    "finalizeJS": "scenery.Utils.polyfillRequestAnimationFrame();",
+    "preload": [
+      "../sherpa/lib/jquery-2.1.0.min.js",
+      "../sherpa/lib/lodash-4.17.4.min.js",
+      "../sherpa/lib/himalaya-1.1.0.js",
+      "../sherpa/lib/linebreak-1.1.0.js",
+      "../sherpa/lib/flatqueue-1.2.1.js",
+      "../sherpa/lib/he-1.1.1.js",
+      "../sherpa/lib/TextEncoderLite-3c9f6f0.js",
+      "../sherpa/lib/base64-js-1.2.0.js",
+      "../sherpa/lib/seedrandom-2.4.2.js",
+      "../sherpa/lib/FileSaver-b8054a2.js",
+      "../query-string-machine/js/QueryStringMachine.js",
+      "../chipper/js/initialize-globals.js"
+    ],
+    "supportsOutputJS": true
+  },
+  "eslintConfig": {
+    "extends": "../chipper/eslint/sim_eslintrc.js"
+  }
+}

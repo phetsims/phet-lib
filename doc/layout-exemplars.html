@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <title>Layout Exemplars</title>
+
+  <!--  TODO: Don't use build, use dist-->
+  <script src="../build/phet-lib.debug.js"></script>
+
+  <link rel="shortcut icon" type="image/x-icon" href="../assets/logo-v1.svg">
+  <link rel="stylesheet" href="../../sherpa/lib/bootstrap-2.2.2.css">
+  <link rel="stylesheet" href="../../sherpa/lib/bootstrap-responsive-2.2.2.css">
+
+  <!-- Before loading other things (that might error), create hooks to report errors/loads for continuous testing -->
+  <script src="../../chipper/js/sim-tests/pageload-connector.js"></script>
+
+  <!-- For the styling -->
+  <script src="../../sherpa/lib/bootstrap-2.2.2.js"></script>
+
+  <link rel="stylesheet" href="../../sherpa/lib/codemirror-5.52.2.min.css">
+  <link rel="stylesheet" href="../../sherpa/lib/codemirror-5.52.2.monokai.min.css">
+
+  <script src="../../sherpa/lib/codemirror-5.52.2.min.js"></script>
+  <script src="../../sherpa/lib/codemirror-5.52.2.javascript.min.js"></script>
+
+  <script src="../../scenery/doc/doc.js"></script>
+  <link rel="stylesheet" href="../../scenery/doc/doc.css">
+  <script src="../../scenery/doc/extractFunctionJS.js"></script>
+  <script src="../../scenery/doc/scenery-sandbox.js"></script>
+  <link rel="stylesheet" href="../../scenery/doc/scenery-sandbox.css">
+
+  <style>
+
+  </style>
+
+  <script type="text/javascript">
+    scenery.Utils.polyfillRequestAnimationFrame();
+
+    _.extend( window, phetCore );
+    _.extend( window, axon );
+    _.extend( window, dot );
+    _.extend( window, kite );
+    _.extend( window, scenery );
+    _.extend( window, sun );
+    _.extend( window, sceneryPhet );
+
+    const colors = [
+      new Color( 62, 171, 3 ),
+      new Color( 23, 180, 77 ),
+      new Color( 24, 183, 138 ),
+      new Color( 23, 178, 194 ),
+      new Color( 20, 163, 238 ),
+      new Color( 71, 136, 255 ),
+      new Color( 171, 101, 255 ),
+      new Color( 228, 72, 235 ),
+      new Color( 252, 66, 186 ),
+      new Color( 252, 82, 127 )
+    ];
+  </script>
+</head>
+
+<body>
+
+<div class="row-fluid">
+  <div class="span2"></div>
+  <div class="span8">
+    <div class="page-header" style="text-align: center;">
+      <h1>Layout Exemplars</h1>
+    </div>
+  </div>
+  <div class="span2"></div>
+</div>
+
+<div class="row-fluid">
+  <div class="span2" id="apiList">
+    <!-- the apiList will be filled in by JS -->
+  </div>
+  <div class="span8">
+
+    <p>
+      All of the code examples here are editable. You can change the code and see the results immediately.
+    </p>
+
+    <h2 id="BasicLayout" class="index">Basic Layout</h2>
+
+    <h3 id="PanelAlignment" class="index">Panel Alignment</h3>
+
+    <p>
+      To have a vertical stack of Panels keep the same width, provide <code>stretch: true</code> either on the parent
+      container, or on each Panel individually.
+    </p>
+
+    <div id="AligningPanels-example"></div>
+    <script>
+      createSandbox( 'AligningPanels-example', ( scene, stepEmitter ) => {
+        // import sun/js/Panel
+        // import sun/js/Checkbox
+        // import scenery-phet/js/PhetFont
+
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+        /*START*/
+
+        scene.addChild( new VBox( {
+          // This sets the default alignment to stretch (could be provided in each of the
+          // Panel's layoutOptions instead)
+          stretch: true,
+
+          spacing: 10,
+          children: [
+            new Panel( new VBox( {
+              align: 'left',
+              stretch: true,
+              spacing: 5,
+              children: [
+                new Text( 'Checkboxes', { font: new PhetFont( { size: 14, weight: 'bold' } ) } ),
+                new Checkbox( new BooleanProperty( false ), new Text( 'First checkbox', {
+                  font: new PhetFont( 12 )
+                } ), {
+                  boxWidth: 14
+                } ),
+                new Checkbox( new BooleanProperty( false ), new Text( 'Second checkbox', {
+                  font: new PhetFont( 12 )
+                } ), {
+                  boxWidth: 14
+                } )
+              ]
+            } ) ),
+            new Panel( new VBox( {
+              align: 'left',
+              spacing: 5,
+              children: [
+                new Text( 'Resizing', { font: new PhetFont( { size: 14, weight: 'bold' } ) } ),
+                resizingRectangle
+              ]
+            } ) )
+          ]
+        } ) );
+
+        /*END*/
+      } );
+    </script>
+
+    <h2 id="Checkboxes" class="index">Checkboxes</h2>
+
+    <h3 id="CheckboxIcons" class="index">Icons</h3>
+
+    <p>
+      Checkboxes are <code>WidthSizable</code>, and act like a container for their label. For icons, this means you can
+      pass in HBoxes to the label with two items, and the default justification will expand items out to the desired
+      bounds:
+    </p>
+
+    <div id="CheckboxIcon-example"></div>
+    <script>
+      createSandbox( 'CheckboxIcon-example', ( scene, stepEmitter ) => {
+        // import sun/js/Panel
+        // import sun/js/Checkbox
+        // import scenery-phet/js/PhetFont
+
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+        /*START*/
+
+        scene.addChild( new Panel( new VBox( {
+          align: 'left',
+          stretch: true,
+          spacing: 5,
+          children: [
+            new Text( 'Checkbox Icons', { font: new PhetFont( { size: 14, weight: 'bold' } ) } ),
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'First', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'red' } )
+              ]
+            } ), {
+              boxWidth: 14
+            } ),
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'Second', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'blue' } )
+              ]
+            } ), {
+              boxWidth: 14
+            } ),
+            resizingRectangle
+          ]
+        } ) ) );
+
+        /*END*/
+      } );
+    </script>
+
+    <h3 id="CheckboxIndentation" class="index">Indentation</h3>
+
+    <p>
+      Margins can be used for indenting checkboxes:
+    </p>
+
+    <div id="CheckboxIndentedIcon-example"></div>
+    <script>
+      createSandbox( 'CheckboxIndentedIcon-example', ( scene, stepEmitter ) => {
+        // import sun/js/Panel
+        // import sun/js/Checkbox
+        // import scenery-phet/js/PhetFont
+
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+        /*START*/
+
+        scene.addChild( new Panel( new VBox( {
+          align: 'left',
+          stretch: true,
+          spacing: 5,
+          children: [
+            new Text( 'Checkbox Icons', { font: new PhetFont( { size: 14, weight: 'bold' } ) } ),
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'First', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'red' } )
+              ]
+            } ), {
+              boxWidth: 14
+            } ),
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'Second', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'blue' } )
+              ]
+            } ), {
+              boxWidth: 14,
+              layoutOptions: {
+                leftMargin: 20
+              }
+            } ),
+            resizingRectangle
+          ]
+        } ) ) );
+
+        /*END*/
+      } );
+    </script>
+
+    <h2 id="Transforms" class="index">Transforms</h2>
+
+    <p>
+      Sizable nodes within layout containers CAN be transformed in some specific ways that will be respected. It's
+      generally preferred to avoid transforms on direct children of layout containers, but sometimes it's necessary.
+    </p>
+
+    <h3 id="TransformsScale" class="index">Scale</h3>
+
+    <p>
+      Scale should be maintained and respected by layout containers. In cases like these, the <code>preferredWidth</code>
+      and <code>localPreferredWidth</code> of sizable nodes will be different (based on the current transform).
+      In general, set <code>preferredWidth</code> as normal, regardless of the scale.
+    </p>
+
+    <div id="TransformsScale-example"></div>
+    <script>
+      createSandbox( 'TransformsScale-example', ( scene, stepEmitter ) => {
+        // import sun/js/Panel
+        // import sun/js/Checkbox
+        // import scenery-phet/js/PhetFont
+
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 100;
+          const maxWidth = 300;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+        /*START*/
+
+        scene.addChild( new Panel( new VBox( {
+          align: 'left',
+          stretch: true,
+          spacing: 5,
+          children: [
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'Scale: 1', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'red' } )
+              ]
+            } ), {
+              boxWidth: 14
+            } ),
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'Scale: 2', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'magenta' } )
+              ]
+            } ), {
+              scale: 2,
+              boxWidth: 14
+            } ),
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'Scale: 0.5', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'blue' } )
+              ]
+            } ), {
+              scale: 0.5,
+              boxWidth: 14
+            } ),
+            resizingRectangle
+          ]
+        } ) ) );
+
+        /*END*/
+      } );
+    </script>
+
+    <h3 id="TransformsReflection" class="index">Reflection</h3>
+
+    <p>
+      Reflection is also supported (but hopefully rarely needed)
+    </p>
+
+    <div id="TransformsReflection-example"></div>
+    <script>
+      createSandbox( 'TransformsReflection-example', ( scene, stepEmitter ) => {
+        // import sun/js/Panel
+        // import sun/js/Checkbox
+        // import scenery-phet/js/PhetFont
+
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+        /*START*/
+
+        scene.addChild( new Panel( new VBox( {
+          align: 'left',
+          stretch: true,
+          spacing: 5,
+          children: [
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'Normal', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'red' } )
+              ]
+            } ), {
+              boxWidth: 14
+            } ),
+            new Checkbox( new BooleanProperty( false ), new HBox( {
+              spacing: 10,
+              children: [
+                new Text( 'Reflected', {
+                  font: new PhetFont( 12 )
+                } ),
+                new Rectangle( 0, 0, 14, 14, { fill: 'magenta' } )
+              ]
+            } ), {
+              matrix: Matrix3.scaling( -1, 1 ),
+              boxWidth: 14
+            } ),
+            resizingRectangle
+          ]
+        } ) ) );
+
+        /*END*/
+      } );
+    </script>
+
+    <h3 id="TransformsRotation" class="index">Rotation</h3>
+
+    <p>
+      Rotation is also supported (TODO)
+    </p>
+
+  </div>
+  <div class="span2"></div>
+</div>
+
+<script>
+  generateAPIList();
+</script>
+</body>
+</html>
