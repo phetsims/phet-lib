@@ -579,6 +579,66 @@
       } );
     </script>
 
+
+    <h2 id="ManualConstraint" class="index">Manual Constraint</h2>
+    <h3 id="ManualConstraintAlignment" class="index">Manual Constraint Alignment</h3>
+    <p>
+      A resizer animates to demonstrate how Manual Constraint can connect the layout of two separate nodes. The
+      position of the leftText stays aligned with the position of the rightText as the rightText's y coordinate changes.
+    </p>
+
+    <div id="ManualConstraintAlignment-example"></div>
+    <script>
+      createSandbox( 'ManualConstraintAlignment-example', ( scene, stepEmitter ) => {
+        // import scenery-phet/js/PhetFont
+
+        /*START*/
+        const rightText = new Text( 'Text aligned on right', new PhetFont( 12 ) );
+        const leftText = new Text( 'Text aligned on left', new PhetFont( 12 ) );
+
+        const resizer = new Rectangle( {
+          fill: 'green',
+          rectWidth: 30
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minHeight = 50;
+          const maxHeight = 200;
+          resizer.rectHeight = ( minHeight + maxHeight ) / 2 + Math.cos( elapsedTime ) * ( maxHeight - minHeight ) / 2;
+        } );
+
+        const panel = new Panel( new FlowBox( {
+          orientation: 'vertical',
+          align: 'left',
+          spacing: 5,
+          children: [
+            resizer,
+            rightText
+          ]
+        } ) );
+
+
+        const alignBox = new AlignBox( panel, { margin: 10, xAlign: 'right', yAlign: 'top' } );
+
+        const node = new Node();
+
+        // Can create the constraint before things are connected (it will listen)
+        ManualConstraint.create( node, [ leftText, rightText, panel ], ( leftProxy, rightProxy, panelProxy ) => {
+          leftProxy.centerY = rightProxy.centerY;
+          leftProxy.right = panelProxy.left - 10;
+        } );
+
+        node.children = [ leftText, alignBox ];
+
+        scene.addChild( node );
+        /*END*/
+
+      } );
+    </script>
+
   </div>
   <div class="span2"></div>
 </div>
