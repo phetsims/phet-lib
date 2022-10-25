@@ -155,6 +155,109 @@
       } );
     </script>
 
+    <h3 id="ButtonAlignment" class="index">Button Alignment</h3>
+    <p>
+      Buttons can maintain alignment as their content resizes. This example uses a GridBox and <code>stretch:
+      true</code> to align buttons
+      in the first column as the width in one of the buttons changes. Notice how the width of the second column is
+      unaffected.
+    </p>
+
+    <div id="ButtonAlignment-example"></div>
+    <script>
+      createSandbox( 'ButtonAlignment-example', ( scene, stepEmitter ) => {
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+
+        /*START*/
+        scene.addChild( new GridBox( {
+          spacing: 5,
+          stretch: true,
+          rows: [
+            [
+              new RectangularPushButton( {
+                xAlign: 'stretch',
+                yAlign: 'stretch',
+                content: new GridBox( {
+                  grow: 1,
+                  rows: [
+                    [
+                      new Rectangle( 0, 0, 25, 25, { fill: colors[ 2 ] } ),
+                      new Rectangle( 0, 0, 25, 25, { fill: colors[ 4 ] } )
+                    ],
+                    [
+                      new Rectangle( 0, 0, 25, 25, { fill: colors[ 6 ] } ),
+                      new Rectangle( 0, 0, 25, 25, { fill: colors[ 8 ] } )
+                    ]
+                  ]
+                } ),
+                sizable: true
+              } ),
+              new RectangularPushButton( {
+                content: new Rectangle( 0, 0, 50, 100, { fill: 'red' } ),
+                sizable: true
+              } )
+            ],
+            [
+              new RectangularPushButton( {
+                content: resizingRectangle,
+                sizable: true
+              } ),
+              new RectangularPushButton( {
+                content: new Rectangle( 0, 0, 100, 100, { fill: 'red' } ),
+                sizable: true
+              } )
+            ]
+          ]
+        } ) );
+
+        /*END*/
+      } );
+    </script>
+
+    <h3 id="ResizableButtons" class="index">Resizable Buttons</h3>
+
+    <p>
+      When provided resizing/dynamic content, buttons can automatically adjust to the content's width. By default
+      buttons are <code>sizable: true</code>.
+    </p>
+
+    <div id="ResizableButtons-example"></div>
+    <script>
+      createSandbox( 'ResizableButtons-example', ( scene, stepEmitter ) => {
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+
+        /*START*/
+        scene.addChild( new RectangularPushButton( {
+          content: resizingRectangle
+        } ) );
+        /*END*/
+      } );
+    </script>
+
     <h2 id="Checkboxes" class="index">Checkboxes</h2>
 
     <h3 id="CheckboxIcons" class="index">Icons</h3>
@@ -300,7 +403,8 @@
     <h3 id="TransformsScale" class="index">Scale</h3>
 
     <p>
-      Scale should be maintained and respected by layout containers. In cases like these, the <code>preferredWidth</code>
+      Scale should be maintained and respected by layout containers. In cases like these, the
+      <code>preferredWidth</code>
       and <code>localPreferredWidth</code> of sizable nodes will be different (based on the current transform).
       In general, set <code>preferredWidth</code> as normal, regardless of the scale.
     </p>
@@ -495,8 +599,8 @@
         } );
 
         const containerNode = new Node( {
-          children: [ firstParent, secondParent, thirdParent ],
-        } )
+          children: [ firstParent, secondParent, thirdParent ]
+        } );
 
         scene.addChild( containerNode );
 
@@ -528,7 +632,8 @@
     <h3 id="FlowConstraintFlowStressTest" class="index">Flow Stress Test</h3>
 
     <p>
-      300 rectangles are created with random sizes inside a Flowbox to demonstrate a horizontal orientation with wrapping.
+      300 rectangles are created with random sizes inside a Flowbox to demonstrate a horizontal orientation with
+      wrapping.
       Stress test demonstrates how layout successfully handles a variety of rectangle sizes while still aligning content
       as expected.
     </p>
@@ -546,7 +651,7 @@
             fill: colors[ dotRandom.nextIntBetween( 2, 8 ) ]
           } ) ),
           preferredWidth: 500
-        } ) )
+        } ) );
         /*END*/
 
       } );
@@ -573,7 +678,7 @@
               fill: colors[ dotRandom.nextIntBetween( 2, 8 ) ]
             } );
           } )
-        } ) )
+        } ) );
         /*END*/
 
       } );
@@ -642,7 +747,8 @@
     <h2 id="Origin" class="index">Origin</h2>
 
     <p>
-      Demos the orientation feature for alignment in flow and grid layouts. Essentially the x=0 or y=0 point of the nodes
+      Demos the orientation feature for alignment in flow and grid layouts. Essentially the x=0 or y=0 point of the
+      nodes
       are placed in the same vertical or horizontal line when 'origin' is used for alignment.
     </p>
 
@@ -727,6 +833,50 @@
         } );
 
         scene.addChild( new AlignBox( content, { xAlign: 'center', yAlign: 'center' } ) );
+        /*END*/
+
+      } );
+    </script>
+
+    <h2 id="Separators" class="index">Separators</h2>
+    <h3 id="SeparatorsDisappearingNode" class="index">Disappearing Node</h3>
+
+    <p>
+      A disappearing node demonstrates how separators dynamically react to content being added or removed in a panel.
+    </p>
+
+    <div id="SeparatorsDisappearingNode-example"></div>
+    <script>
+      createSandbox( 'SeparatorsDisappearingNode-example', ( scene, stepEmitter ) => {
+        // import scenery-phet/js/PhetFont
+
+        const result = new Rectangle( {
+          fill: 'green',
+          rectWidth: 150,
+          rectHeight: 100
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+          result.visible = Math.floor( elapsedTime ) % 2 === 0;
+        } );
+
+        /*START*/
+
+        const panel = new Panel( new FlowBox( {
+          orientation: 'vertical',
+          align: 'left',
+          spacing: 5,
+          children: [
+            new HSeparator(),
+            new Text( 'Disappearing node?:', { font: new PhetFont( { size: 14, weight: 'bold' } ) } ),
+            new HSeparator(),
+            result,
+            new HSeparator()
+          ]
+        } ) );
+        scene.addChild( panel );
         /*END*/
 
       } );
