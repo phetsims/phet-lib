@@ -444,6 +444,140 @@
     <p>
       Rotation is also supported (TODO)
     </p>
+    <h2 id="FlowConstraint" class="index">Flow Constraint</h2>
+    <h3 id="FlowConstraintDisconnectedFlow" class="index">Disconnected Flow</h3>
+
+    <p>
+      Flow constraint allows a parent and child to have disconnected position and bounds.
+    </p>
+
+    <div id="FlowConstraintDisconnectedFlow-example"></div>
+    <script>
+      createSandbox( 'FlowConstraintDisconnectedFlow-example', ( scene, stepEmitter ) => {
+        // import scenery-phet/js/PhetFont
+
+        /*START*/
+        const createLabeledBox = ( label, fill, width, height ) => {
+          return new Rectangle( 0, 0, width, height, {
+            stroke: 'black',
+            fill: fill,
+            children: [
+              new Text( label, { font: new PhetFont( 14 ), left: 7, bottom: height - 7 } )
+            ]
+          } );
+        };
+
+        const firstChild = createLabeledBox( 'First child', '#faa', 150, 30 );
+        const secondChild = createLabeledBox( 'Second child', '#afa', 150, 30 );
+        const thirdChild = createLabeledBox( 'Third child', '#aaf', 150, 30 );
+
+        firstChild.y = 50;
+
+        const firstParent = new Node( {
+          children: [
+            firstChild,
+            createLabeledBox( 'First parent', null, 400, 400 )
+          ]
+        } );
+        const secondParent = new Node( {
+          children: [
+            secondChild,
+            createLabeledBox( 'Second parent', null, 400, 400 )
+          ],
+          scale: 0.75
+        } );
+        const thirdParent = new Node( {
+          children: [
+            thirdChild,
+            createLabeledBox( 'Third parent', null, 400, 400 )
+          ],
+          scale: 0.5
+        } );
+
+        const containerNode = new Node( {
+          children: [ firstParent, secondParent, thirdParent ],
+        } )
+
+        scene.addChild( containerNode );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          secondParent.x = 0;
+          secondParent.y = 0;
+          firstParent.x = -410;
+          firstParent.y = -200 + Math.cos( elapsedTime ) * 100;
+          thirdParent.x = secondParent.centerX + 300 + Math.cos( elapsedTime ) * 100;
+          thirdParent.y = secondParent.centerY + Math.sin( elapsedTime ) * 100;
+        } );
+
+        const constraint = new FlowConstraint( scene, {
+          layoutOriginProperty: new Vector2Property( new Vector2( 300, 100 ) )
+        } );
+        constraint.spacing = 10;
+        constraint.insertCell( 0, new FlowCell( constraint, firstChild, null ) );
+        constraint.insertCell( 1, new FlowCell( constraint, secondChild, null ) );
+        constraint.insertCell( 2, new FlowCell( constraint, thirdChild, null ) );
+        constraint.updateLayout();
+        /*END*/
+
+      } );
+    </script>
+
+    <h3 id="FlowConstraintFlowStressTest" class="index">Flow Stress Test</h3>
+
+    <p>
+      300 rectangles are created with random sizes inside a Flowbox to demonstrate a horizontal orientation with wrapping.
+      Stress test demonstrates how layout successfully handles a variety of rectangle sizes while still aligning content
+      as expected.
+    </p>
+
+    <div id="FlowConstraintFlowStressTest-example"></div>
+    <script>
+      createSandbox( 'FlowConstraintFlowStressTest-example', ( scene, stepEmitter ) => {
+
+        /*START*/
+        scene.addChild( new FlowBox( {
+          orientation: 'horizontal',
+          wrap: true,
+          justify: 'left',
+          children: _.range( 0, 300 ).map( n => new Rectangle( 0, 0, dotRandom.nextDoubleBetween( 2, 20 ), dotRandom.nextDoubleBetween( 10, 50 ), {
+            fill: colors[ dotRandom.nextIntBetween( 2, 8 ) ]
+          } ) ),
+          preferredWidth: 500
+        } ) )
+        /*END*/
+
+      } );
+    </script>
+
+    <h2 id="GridConstraint" class="index">Grid Constraint</h2>
+    <h3 id="GridConstraintGridStressTest" class="index">Grid Stress Test</h3>
+
+    <p>
+      900 rectangles are created with random sizes inside a gridBox. Each rectangle is inside its own cell.
+      Stress test demonstrates how layout successfully adjusts row and column sizes to accommodate a variety
+      of rectangle sizes.
+    </p>
+
+    <div id="GridConstraintGridStressTest-example"></div>
+    <script>
+      createSandbox( 'GridConstraintGridStressTest-example', ( scene, stepEmitter ) => {
+
+        /*START*/
+        scene.addChild( new GridBox( {
+          autoColumns: 30,
+          children: _.range( 0, 30 * 30 ).map( () => {
+            return new Rectangle( 0, 0, dotRandom.nextDoubleBetween( 2, 20 ), dotRandom.nextDoubleBetween( 2, 20 ), {
+              fill: colors[ dotRandom.nextIntBetween( 2, 8 ) ]
+            } );
+          } )
+        } ) )
+        /*END*/
+
+      } );
+    </script>
 
   </div>
   <div class="span2"></div>
