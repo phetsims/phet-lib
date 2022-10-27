@@ -639,26 +639,27 @@
         const firstParent = new Node( {
           children: [
             firstChild,
-            createLabeledBox( 'First parent', null, 400, 400 )
+            createLabeledBox( 'First parent', null, 200, 200 )
           ]
         } );
         const secondParent = new Node( {
           children: [
             secondChild,
-            createLabeledBox( 'Second parent', null, 400, 400 )
+            createLabeledBox( 'Second parent', null, 200, 200 )
           ],
           scale: 0.75
         } );
         const thirdParent = new Node( {
           children: [
             thirdChild,
-            createLabeledBox( 'Third parent', null, 400, 400 )
+            createLabeledBox( 'Third parent', null, 200, 200 )
           ],
           scale: 0.5
         } );
 
         const containerNode = new Node( {
-          children: [ firstParent, secondParent, thirdParent ]
+          children: [ firstParent, secondParent, thirdParent ],
+          localBounds: new Bounds2( 0, 0, 1200, 400 )
         } );
 
         scene.addChild( containerNode );
@@ -667,16 +668,16 @@
         stepEmitter.addListener( dt => {
           elapsedTime += dt;
 
-          secondParent.x = 0;
-          secondParent.y = 0;
-          firstParent.x = -410;
-          firstParent.y = -200 + Math.cos( elapsedTime ) * 100;
-          thirdParent.x = secondParent.centerX + 300 + Math.cos( elapsedTime ) * 100;
+          secondParent.x = 500 ;
+          secondParent.y = 150;
+          firstParent.x = 250;
+          firstParent.y = 100 + Math.cos( elapsedTime ) * 100;
+          thirdParent.x = secondParent.centerX + 150 + Math.cos( elapsedTime ) * 100;
           thirdParent.y = secondParent.centerY + Math.sin( elapsedTime ) * 100;
         } );
 
         const constraint = new FlowConstraint( scene, {
-          layoutOriginProperty: new Vector2Property( new Vector2( 300, 100 ) )
+          layoutOriginProperty: new Vector2Property( new Vector2( 400, 100 ) )
         } );
         constraint.spacing = 10;
         constraint.insertCell( 0, new FlowCell( constraint, firstChild, null ) );
