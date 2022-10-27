@@ -596,15 +596,15 @@
                 new Path( new ArrowShape( 0, 15, 0, 0 ), { fill: 'blue' } )
               ]
             } ), {
-              matrix: Matrix3.affine( Math.cos( Math.PI / 2), -Math.sin( Math.PI / 2), 0,
-                Math.sin( Math.PI / 2), Math.cos( Math.PI / 2), 0 ),
+              matrix: Matrix3.affine( Math.cos( Math.PI / 2 ), -Math.sin( Math.PI / 2 ), 0,
+                Math.sin( Math.PI / 2 ), Math.cos( Math.PI / 2 ), 0 ),
               boxWidth: 14
             } ),
             resizingRectangle
           ]
         } ) ) );
         /*END*/
-      } )
+      } );
     </script>
 
     <h2 id="FlowConstraint" class="index">Flow Constraint</h2>
@@ -668,7 +668,7 @@
         stepEmitter.addListener( dt => {
           elapsedTime += dt;
 
-          secondParent.x = 500 ;
+          secondParent.x = 500;
           secondParent.y = 150;
           firstParent.x = 250;
           firstParent.y = 100 + Math.cos( elapsedTime ) * 100;
@@ -798,7 +798,7 @@
 
         node.children = [ leftText, alignBox ];
 
-        scene.addChild( node );
+        scene.addChild( new VBox( { children: [ node ], preferredHeight: 250 } ) );
         /*END*/
 
       } );
@@ -936,7 +936,7 @@
             new HSeparator()
           ]
         } ) );
-        scene.addChild( panel );
+        scene.addChild( new VBox( { children: [ panel ], preferredHeight: 150 } ) );
         /*END*/
 
       } );
