@@ -885,35 +885,31 @@
         const alignGroup = new AlignGroup( { matchHorizontal: true, matchVertical: true } );
 
         // Screen 1 content:
-        const threeStoogesPanel = new Panel( new VBox( {
+        const threeStoogesAlignBox = new AlignBox( new VBox( {
           children: [
             new Checkbox( new BooleanProperty( false ), new Text( 'Moe', new PhetFont( 12 ) ) ),
             new Checkbox( new BooleanProperty( false ), new Text( 'Larry', new PhetFont( 12 ) ) ),
             new Checkbox( new BooleanProperty( false ), new Text( 'Curly', new PhetFont( 12 ) ) ),
             resizingRectangle
           ]
-        } ));
+        } ), { group: alignGroup } );
 
-        const threeStoogesAlignBox = new AlignBox( threeStoogesPanel, {
-          group: alignGroup
-        } );
+        const threeStoogesPanel = new Panel( threeStoogesAlignBox );
 
-        const screen1 = new Node( { children: [ threeStoogesAlignBox ], x: 0 } );
+        const screen1 = new Node( { children: [ threeStoogesPanel ], x: 0 } );
 
         // Screen 2 content:
-        const threeMusketeersPanel = new Panel( new VBox( {
+        const threeMusketeersAlignBox = new AlignBox( new VBox( {
           children: [
             new Checkbox( new BooleanProperty( false ), new Text( 'Athos', new PhetFont( 12 ) ) ),
             new Checkbox( new BooleanProperty( false ), new Text( 'Porthos', new PhetFont( 12 ) ) ),
             new Checkbox( new BooleanProperty( false ), new Text( 'Aramis', new PhetFont( 12 ) ) )
           ]
-        } ));
+        } ), { group: alignGroup } );
 
-        const threeMusketeersAlignBox = new AlignBox( threeMusketeersPanel, {
-          group: alignGroup
-        } );
+        const threeMusketeersPanel = new Panel( threeMusketeersAlignBox );
 
-        const screen2 = new Node( { children: [ threeMusketeersAlignBox ], x: 300 } );
+        const screen2 = new Node( { children: [ threeMusketeersPanel ], x: 300 } );
 
         scene.addChild( new Node( { children: [ screen1, screen2 ] } ) );
         /*END*/
