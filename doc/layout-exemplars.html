@@ -802,120 +802,6 @@
 
     <h2 id="ManualConstraint" class="index">Manual Constraint</h2>
 
-    <h3 id="DynamicCentering" class="index">DynamicCentering</h3>
-    <p>This example comes from a use case in Greenhouse Effect. In this sim the developer was looking for a way to dynamically center a button in a play area Observation Window.
-      Manual Constraint became the perfect tool to accomplish this. By triggering a callback each time the bounds of the button changed, Manual Constraint created seamless centering
-      based off of another node's layout bounds.</p>
-
-    <p>Use <code>ManualConstraint.create</code> to set up your custom positioning. The first argument is the ancestorNode (this node must be common to all
-      nodes we will be listening to). The second argument is an array of nodes you want to trigger the manual constraint and/or manipulate in the constraint. The third argument is a callback
-      that will be triggered anytime the bounds of our nodes in the second argument change.
-    </p>
-    <div id="DynamicCentering-example"></div>
-    <script>
-      createSandbox( 'DynamicCentering-example', ( scene, stepEmitter ) => {
-        // import scenery-phet/js/PhetFont
-
-        const resizingRectangle = new Rectangle( {
-          fill: 'green',
-          rectHeight: 15
-        } );
-
-        let elapsedTime = 0;
-        stepEmitter.addListener( dt => {
-          elapsedTime += dt;
-
-          const minWidth = 30;
-          const maxWidth = 200;
-          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
-        } );
-
-        /*START*/
-        const observationWindowFrame = new Rectangle( 0, 0, 500, 300, { stroke: 'black' } );
-        const resizingPushButton = new RectangularPushButton( { content: resizingRectangle } );
-
-        const observationWindow = new Node( { children: [ observationWindowFrame, resizingPushButton ] } );
-
-        ManualConstraint.create( observationWindow, [ resizingPushButton ], ( pushButtonProxy ) => {
-          pushButtonProxy.center = observationWindowFrame.center
-        } );
-
-
-
-        scene.addChild( observationWindow );
-        /*END*/
-      } )
-    </script>
-
-
-
-    <h3 id="ConditionalAlignment" class="index">Conditional Alignment</h3>
-    <p>This example comes from a use case in Build a Nucleus</p>
-
-    <h3 id="Dynamic Labels" class="index">Dynamic Labels</h3>
-    <p>This example comes from a use case in Density</p>
-
-    <h2 id="AlignGroup" class="index">Align Group</h2>
-
-    <h3 id="CrossScreenAlignment" class="index">CrossScreenAlignment</h3>
-    <p>It is common for PhET sims to have panels that exist across multiple screens. These panels may have different content but a design standard is that
-    their width/height matches across those screens. This example shows how AlignGroup can easily accomplish this with little effort on the developer's part.
-    This example may require a bit of imagination. Imagine each Panel is located in a different screen, and notice how their widths and heights synchronize.</p>
-    <div id="CrossScreenAlignment-example"></div>
-    <script>
-      createSandbox( 'CrossScreenAlignment-example', ( scene, stepEmitter ) => {
-        // import scenery-phet/js/PhetFont
-
-        const resizingRectangle = new Rectangle( {
-          fill: 'green',
-          rectHeight: 15
-        } );
-
-        let elapsedTime = 0;
-        stepEmitter.addListener( dt => {
-          elapsedTime += dt;
-
-          const minWidth = 30;
-          const maxWidth = 200;
-          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
-        } );
-
-        /*START*/
-        // This AlignGroup might be declared in a parent screen view, or another sim-wide accessible class.
-        const alignGroup = new AlignGroup( { matchHorizontal: true, matchVertical: true } );
-
-        // Screen 1 content:
-        const threeStoogesAlignBox = new AlignBox( new VBox( {
-          children: [
-            new Checkbox( new BooleanProperty( false ), new Text( 'Moe', new PhetFont( 12 ) ) ),
-            new Checkbox( new BooleanProperty( false ), new Text( 'Larry', new PhetFont( 12 ) ) ),
-            new Checkbox( new BooleanProperty( false ), new Text( 'Curly', new PhetFont( 12 ) ) ),
-            resizingRectangle
-          ]
-        } ), { group: alignGroup } );
-
-        const threeStoogesPanel = new Panel( threeStoogesAlignBox );
-
-        const screen1 = new Node( { children: [ threeStoogesPanel ], x: 0 } );
-
-        // Screen 2 content:
-        const threeMusketeersAlignBox = new AlignBox( new VBox( {
-          children: [
-            new Checkbox( new BooleanProperty( false ), new Text( 'Athos', new PhetFont( 12 ) ) ),
-            new Checkbox( new BooleanProperty( false ), new Text( 'Porthos', new PhetFont( 12 ) ) ),
-            new Checkbox( new BooleanProperty( false ), new Text( 'Aramis', new PhetFont( 12 ) ) )
-          ]
-        } ), { group: alignGroup } );
-
-        const threeMusketeersPanel = new Panel( threeMusketeersAlignBox );
-
-        const screen2 = new Node( { children: [ threeMusketeersPanel ], x: 300 } );
-
-        scene.addChild( new Node( { children: [ screen1, screen2 ] } ) );
-        /*END*/
-      })
-    </script>
-
     <h3 id="DisconnectedNodesAlignment" class="index">Disconnected Nodes Alignment</h3>
     <p>
       A resizer animates to demonstrate how Manual Constraint can connect the layout of two separate nodes. The
@@ -972,6 +858,157 @@
         /*END*/
 
       } );
+    </script>
+
+    <h3 id="DynamicCentering" class="index">DynamicCentering</h3>
+    <p>This example comes from a use case in Greenhouse Effect. In this sim the developer was looking for a way to dynamically center a button in a play area Observation Window.
+      Manual Constraint became the perfect tool to accomplish this. By triggering a callback each time the bounds of the button changed, Manual Constraint created seamless centering
+      based off of another node's layout bounds.</p>
+
+    <p>Use <code>ManualConstraint.create</code> to set up your custom positioning. The first argument is the ancestorNode (this node must be common to all
+      nodes we will be listening to). The second argument is an array of nodes you want to trigger the manual constraint and/or manipulate in the constraint. The third argument is a callback
+      that will be triggered anytime the bounds of our nodes in the second argument change.
+    </p>
+    <div id="DynamicCentering-example"></div>
+    <script>
+      createSandbox( 'DynamicCentering-example', ( scene, stepEmitter ) => {
+        // import scenery-phet/js/PhetFont
+
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+
+        /*START*/
+        const observationWindowFrame = new Rectangle( 0, 0, 500, 300, { stroke: 'black' } );
+        const resizingPushButton = new RectangularPushButton( { content: resizingRectangle } );
+
+        const observationWindow = new Node( { children: [ observationWindowFrame, resizingPushButton ] } );
+
+        ManualConstraint.create( observationWindow, [ resizingPushButton ], ( pushButtonProxy ) => {
+          pushButtonProxy.center = observationWindowFrame.center
+        } );
+
+
+
+        scene.addChild( observationWindow );
+        /*END*/
+      } )
+    </script>
+
+    <h3 id="ConditionalAlignment" class="index">Conditional Alignment</h3>
+    <p>This example comes from a use case in Build a Nucleus</p>
+
+    <h3 id="DynamicLabels" class="index">Dynamic Labels</h3>
+    <p>This example comes from a use case in Density. In this sim an arrow shows where a cube lands on the density spectrum. A label must accompany this arrow adding more clarity to to the data a user is seeing.
+      <code>ManualConstraint.create</code> allows developers to connect two separate nodes together so that when a node's x or y position changes another node can respond accordingly. </p>
+
+    <div id="DynamicLabels-example"></div>
+    <script>
+      createSandbox( 'DynamicLabels-example', ( scene, stepEmitter ) => {
+        // import scenery-phet/js/PhetFont
+
+        const line = new Line( 0, 0, 400, 0, { stroke: 'black' } );
+        const leftLineEnd = new Circle( 3, { fill: 'black', centerX: line.x1, centerY: 0 } )
+        const rightLineEnd = new Circle( 3, { fill: 'black', centerX: line.x2, centerY: 0 } )
+
+        /*START*/
+        const speedLine = new Node( { children: [ line, leftLineEnd, rightLineEnd ] } );
+        const hyperspeedLabel = new Text( 'Hyperspeed', { font: new PhetFont( { size: 14, weight: 'bold' } ) } );
+        const parkedLabel = new Text( 'Parked', { font: new PhetFont( { size: 14, weight: 'bold' } ) } );
+
+        const arrow = new ArrowNode( 0, -35, 0, -10 );
+        const label = new Text( 'Millenium Falcon', { font: new PhetFont( { size: 14, weight: 'bold' } ), centerY: -42 } );
+
+        const speedHBox = new HBox( { children: [ parkedLabel, speedLine, hyperspeedLabel  ], spacing: 10 } );
+        const speedNode = new Node( { children: [ label, arrow, speedHBox ] } );
+
+        ManualConstraint.create( speedNode, [ label, arrow ], ( labelProxy, arrowProxy ) => {
+          labelProxy.centerX = arrowProxy.centerX;
+        } )
+
+        scene.addChild( speedNode )
+        /*END*/
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minX = speedLine.left;
+          const maxX = speedLine.right;
+          arrow.x = ( maxX + minX ) / 2 + Math.cos( elapsedTime ) * ( minX - maxX ) / 2;
+        } );
+      } );
+    </script>
+
+    <h2 id="AlignGroup" class="index">Align Group</h2>
+
+    <h3 id="CrossScreenAlignment" class="index">Cross Screen Alignment</h3>
+    <p>It is common for PhET sims to have panels that exist across multiple screens. These panels may have different content but a design standard is that
+    their width/height matches across those screens. This example shows how AlignGroup can easily accomplish this with little effort on the developer's part.
+    This example may require a bit of imagination. Imagine each Panel is located in a different screen, and notice how their widths and heights synchronize.</p>
+    <div id="CrossScreenAlignment-example"></div>
+    <script>
+      createSandbox( 'CrossScreenAlignment-example', ( scene, stepEmitter ) => {
+        // import scenery-phet/js/PhetFont
+
+        const resizingRectangle = new Rectangle( {
+          fill: 'green',
+          rectHeight: 15
+        } );
+
+        let elapsedTime = 0;
+        stepEmitter.addListener( dt => {
+          elapsedTime += dt;
+
+          const minWidth = 30;
+          const maxWidth = 200;
+          resizingRectangle.rectWidth = ( minWidth + maxWidth ) / 2 + Math.cos( elapsedTime ) * ( maxWidth - minWidth ) / 2;
+        } );
+
+        /*START*/
+        // This AlignGroup might be declared in a parent screen view, or another sim-wide accessible class.
+        const alignGroup = new AlignGroup( { matchHorizontal: true, matchVertical: true } );
+
+        // Screen 1 content:
+        const threeStoogesAlignBox = new AlignBox( new VBox( {
+          children: [
+            new Checkbox( new BooleanProperty( false ), new Text( 'Moe', new PhetFont( 12 ) ) ),
+            new Checkbox( new BooleanProperty( false ), new Text( 'Larry', new PhetFont( 12 ) ) ),
+            new Checkbox( new BooleanProperty( false ), new Text( 'Curly', new PhetFont( 12 ) ) ),
+            resizingRectangle
+          ]
+        } ), { group: alignGroup } );
+
+        const threeStoogesPanel = new Panel( threeStoogesAlignBox );
+
+        const screen1 = new Node( { children: [ threeStoogesPanel ], x: 0 } );
+
+        // Screen 2 content:
+        const threeMusketeersAlignBox = new AlignBox( new VBox( {
+          children: [
+            new Checkbox( new BooleanProperty( false ), new Text( 'Athos', new PhetFont( 12 ) ) ),
+            new Checkbox( new BooleanProperty( false ), new Text( 'Porthos', new PhetFont( 12 ) ) ),
+            new Checkbox( new BooleanProperty( false ), new Text( 'Aramis', new PhetFont( 12 ) ) )
+          ]
+        } ), { group: alignGroup } );
+
+        const threeMusketeersPanel = new Panel( threeMusketeersAlignBox );
+
+        const screen2 = new Node( { children: [ threeMusketeersPanel ], x: 300 } );
+
+        scene.addChild( new Node( { children: [ screen1, screen2 ] } ) );
+        /*END*/
+      })
     </script>
 
     <h2 id="Origin" class="index">Origin</h2>
