@@ -18,15 +18,6 @@
     "buildStandalone": true,
     "requiresLodash": false,
     "requiresJQuery": false,
-    "assignGlobals": {
-      "scenery": "SCENERY/main",
-      "phet-lib": "main",
-      "kite": "KITE/main",
-      "dot": "DOT/main",
-      "axon": "AXON/main",
-      "phetCore": "PHET_CORE/main",
-      "utteranceQueue": "UTTERANCE_QUEUE/main"
-    },
     "finalizeJS": "scenery.Utils.polyfillRequestAnimationFrame();",
     "preload": [
       "../sherpa/lib/jquery-2.1.0.min.js",
