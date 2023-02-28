@@ -39,13 +39,13 @@
   <script type="text/javascript">
     phet.scenery.Utils.polyfillRequestAnimationFrame();
 
-    _.extend( window, phetCore );
-    _.extend( window, axon );
-    _.extend( window, dot );
-    _.extend( window, kite );
-    _.extend( window, scenery );
-    _.extend( window, sun );
-    _.extend( window, sceneryPhet );
+    _.extend( window, phet.phetCore );
+    _.extend( window, phet.axon );
+    _.extend( window, phet.dot );
+    _.extend( window, phet.kite );
+    _.extend( window, phet.scenery );
+    _.extend( window, phet.sun );
+    _.extend( window, phet.sceneryPhet );
 
     const colors = [
       new Color( 62, 171, 3 ),
