@@ -7,4 +7,5 @@ import dot from '../../dot/js/main.js';
 import kite from '../../kite/js/main.js';
 import phetCore from '../../phet-core/js/main.js';
 import utteranceQueue from '../../utterance-queue/js/main.js';
+import { alpenglow } from '../../alpenglow/js/imports.js';
 import { scenery } from '../../scenery/js/imports.js';

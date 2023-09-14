@@ -2,6 +2,7 @@
 
 // NOTE: Not including mobius, since it requires THREE.js
 
+import '../../alpenglow/js/main.js';
 import '../../axon/js/main.js';
 import '../../bamboo/js/main.js';
 import '../../dot/js/main.js';
