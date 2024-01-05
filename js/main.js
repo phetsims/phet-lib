@@ -1,5 +1,9 @@
 // Copyright 2022-2023, University of Colorado Boulder
 
+/**
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
 /* eslint-disable default-import-match-filename,no-unused-vars,bad-sim-text */
 
 import axon from '../../axon/js/main.js';

@@ -1,5 +1,9 @@
 // Copyright 2022-2023, University of Colorado Boulder
 
+/**
+ * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ */
+
 // NOTE: Not including mobius, since it requires THREE.js
 
 import '../../alpenglow/js/main.js';
