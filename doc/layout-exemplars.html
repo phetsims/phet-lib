@@ -96,7 +96,7 @@
 
     <div id="AligningPanels-example"></div>
     <script>
-      createSandbox( 'AligningPanels-example', ( scene, clock ) => {
+      createSandbox( 'AligningPanels-example', ( scene, stepEmitter ) => {
         // import sun/js/Panel
         // import sun/js/Checkbox
         // import scenery-phet/js/PhetFont
@@ -167,7 +167,7 @@
     <div id="WrapContent-example"></div>
 
     <script>
-      createSandbox( 'WrapContent-example', ( scene, clock ) => {
+      createSandbox( 'WrapContent-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
         // import sun/js/Panel
 
@@ -221,7 +221,7 @@
 
     <div id="ButtonAlignment-example"></div>
     <script>
-      createSandbox( 'ButtonAlignment-example', ( scene, clock ) => {
+      createSandbox( 'ButtonAlignment-example', ( scene, stepEmitter ) => {
         const resizingRectangle = new Rectangle( {
           fill: 'green',
           rectHeight: 15
@@ -291,7 +291,7 @@
 
     <div id="ResizableButtons-example"></div>
     <script>
-      createSandbox( 'ResizableButtons-example', ( scene, clock ) => {
+      createSandbox( 'ResizableButtons-example', ( scene, stepEmitter ) => {
         const resizingRectangle = new Rectangle( {
           fill: 'green',
           rectHeight: 15
@@ -326,7 +326,7 @@
 
     <div id="CheckboxIcon-example"></div>
     <script>
-      createSandbox( 'CheckboxIcon-example', ( scene, clock ) => {
+      createSandbox( 'CheckboxIcon-example', ( scene, stepEmitter ) => {
         // import sun/js/Panel
         // import sun/js/Checkbox
         // import scenery-phet/js/PhetFont
@@ -390,7 +390,7 @@
 
     <div id="CheckboxIndentedIcon-example"></div>
     <script>
-      createSandbox( 'CheckboxIndentedIcon-example', ( scene, clock ) => {
+      createSandbox( 'CheckboxIndentedIcon-example', ( scene, stepEmitter ) => {
         // import sun/js/Panel
         // import sun/js/Checkbox
         // import scenery-phet/js/PhetFont
@@ -467,7 +467,7 @@
 
     <div id="TransformsScale-example"></div>
     <script>
-      createSandbox( 'TransformsScale-example', ( scene, clock ) => {
+      createSandbox( 'TransformsScale-example', ( scene, stepEmitter ) => {
         // import sun/js/Panel
         // import sun/js/Checkbox
         // import scenery-phet/js/PhetFont
@@ -543,7 +543,7 @@
 
     <div id="TransformsReflection-example"></div>
     <script>
-      createSandbox( 'TransformsReflection-example', ( scene, clock ) => {
+      createSandbox( 'TransformsReflection-example', ( scene, stepEmitter ) => {
         // import sun/js/Panel
         // import sun/js/Checkbox
         // import scenery-phet/js/PhetFont
@@ -607,7 +607,7 @@
 
     <div id="Rotation-example"></div>
     <script>
-      createSandbox( 'Rotation-example', ( scene, clock ) => {
+      createSandbox( 'Rotation-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/ArrowShape
         // import scenery-phet/js/Panel
 
@@ -672,7 +672,7 @@
 
     <div id="DisconnectedFlow-example"></div>
     <script>
-      createSandbox( 'DisconnectedFlow-example', ( scene, clock ) => {
+      createSandbox( 'DisconnectedFlow-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
 
         /*START*/
@@ -756,7 +756,7 @@
 
     <div id="FlowStressTest-example"></div>
     <script>
-      createSandbox( 'FlowStressTest-example', ( scene, clock ) => {
+      createSandbox( 'FlowStressTest-example', ( scene, stepEmitter ) => {
 
         /*START*/
         scene.addChild( new FlowBox( {
@@ -784,7 +784,7 @@
 
     <div id="GridStressTest-example"></div>
     <script>
-      createSandbox( 'GridStressTest-example', ( scene, clock ) => {
+      createSandbox( 'GridStressTest-example', ( scene, stepEmitter ) => {
 
         /*START*/
         scene.addChild( new GridBox( {
@@ -811,7 +811,7 @@
 
     <div id="DisconnectedNodesAlignment-example"></div>
     <script>
-      createSandbox( 'DisconnectedNodesAlignment-example', ( scene, clock ) => {
+      createSandbox( 'DisconnectedNodesAlignment-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
 
         /*START*/
@@ -872,7 +872,7 @@
     </p>
     <div id="DynamicCentering-example"></div>
     <script>
-      createSandbox( 'DynamicCentering-example', ( scene, clock ) => {
+      createSandbox( 'DynamicCentering-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
 
         const resizingRectangle = new Rectangle( {
@@ -915,7 +915,7 @@
 
     <div id="DynamicLabels-example"></div>
     <script>
-      createSandbox( 'DynamicLabels-example', ( scene, clock ) => {
+      createSandbox( 'DynamicLabels-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
 
         const line = new Line( 0, 0, 400, 0, { stroke: 'black' } );
@@ -959,7 +959,7 @@
     This example may require a bit of imagination. Imagine each Panel is located in a different screen, and notice how their widths and heights synchronize.</p>
     <div id="CrossScreenAlignment-example"></div>
     <script>
-      createSandbox( 'CrossScreenAlignment-example', ( scene, clock ) => {
+      createSandbox( 'CrossScreenAlignment-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
 
         const resizingRectangle = new Rectangle( {
@@ -1028,7 +1028,7 @@
 
     <div id="Origin-example"></div>
     <script>
-      createSandbox( 'Origin-example', ( scene, clock ) => {
+      createSandbox( 'Origin-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
 
         const normalText = ( str, options = {} ) => new Text( str, merge( {
@@ -1121,7 +1121,7 @@
 
     <div id="DisappearingNode-example"></div>
     <script>
-      createSandbox( 'DisappearingNode-example', ( scene, clock ) => {
+      createSandbox( 'DisappearingNode-example', ( scene, stepEmitter ) => {
         // import scenery-phet/js/PhetFont
 
         const result = new Rectangle( {
