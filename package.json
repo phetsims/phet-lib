@@ -1,13 +1,57 @@
 {
   "name": "phet-lib",
   "version": "0.0.0",
+  "description": "Bundle of PhET Interactive Simulations common code libraries",
+  "keywords": [
+    "phet",
+    "phetsims"
+  ],
+  "type": "module",
+  "homepage": "https://phet.colorado.edu",
+  "bugs": {
+    "url": "https://github.com/phetsims/community/issues",
+    "email": "phethelp@colorado.edu"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/phetsims/phet-lib.git"
   },
+  "main": "./dist/phet-lib.js",
+  "module": "./dist/phet-lib.js",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "module": "./dist/phet-lib.js",
+      "import": "./dist/phet-lib.js",
+      "types": "./dist/phet-lib.d.ts"
+    },
+    "./scenery": {
+      "module": "./dist/scenery.js",
+      "import": "./dist/scenery.js",
+      "types": "./dist/scenery/index.d.ts"
+    }
+  },
   "devDependencies": {
-    "grunt": "~1.5.3"
+    "grunt": "~1.5.3",
+
+    "@types/jquery": "~3.5.13",
+    "@types/lodash": "~4.14.172",
+    "@types/p2": "~0.7.39",
+    "@types/pako": "~2.0.0",
+    "@types/qunit": "~2.19.6",
+    "@types/three": "~0.137.0",
+    "@webgpu/types": "~0.1.40",
+
+    "vite": "^5.1.0",
+    "vite-plugin-dts": "^3.7.2",
+    "eslint": "~8.28.0",
+    "typescript": "~5.3.3",
+    "@typescript-eslint/parser": "~6.18.1",
+    "@typescript-eslint/eslint-plugin": "~6.18.1",
+    "@typescript-eslint/utils": "~6.18.1"
   },
   "phet": {
     "supportedBrands": [
