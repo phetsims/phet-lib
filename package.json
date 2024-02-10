@@ -21,6 +21,7 @@
   "module": ".index.ts",
   "files": [
     "src",
+    "js",
     "third-party-licenses"
   ],
   "exports": {
