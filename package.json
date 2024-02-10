@@ -1,13 +1,71 @@
 {
   "name": "phet-lib",
   "version": "0.0.0",
+  "description": "Bundle of PhET Interactive Simulations common code libraries",
+  "keywords": [
+    "phet",
+    "phetsims"
+  ],
+  "type": "module",
+  "homepage": "https://phet.colorado.edu",
+  "bugs": {
+    "url": "https://github.com/phetsims/community/issues",
+    "email": "phethelp@colorado.edu"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/phetsims/phet-lib.git"
   },
+  "main": ".index.ts",
+  "module": ".index.ts",
+  "files": [
+    "src",
+    "third-party-licenses"
+  ],
+  "exports": {
+    ".": {
+      "module": "./js/index.ts",
+      "import": "./js/index.ts"
+    },
+    "./axon": {
+      "module": "./js/axon.ts",
+      "import": "./js/axon.ts"
+    },
+    "./dot": {
+      "module": "./js/dot.ts",
+      "import": "./js/dot.ts"
+    },
+    "./kite": {
+      "module": "./js/kite.ts",
+      "import": "./js/kite.ts"
+    },
+    "./phet-core": {
+      "module": "./js/phet-core.ts",
+      "import": "./js/phet-core.ts"
+    },
+    "./scenery": {
+      "module": "./js/scenery.ts",
+      "import": "./js/scenery.ts"
+    },
+    "./sun": {
+      "module": "./js/sun.ts",
+      "import": "./js/sun.ts"
+    }
+  },
+  "dependencies": {
+    "@types/jquery": "~3.5.13",
+    "@types/lodash": "~4.14.172",
+    "@types/p2": "~0.7.39",
+    "@types/pako": "~2.0.0",
+    "@types/qunit": "~2.19.6",
+    "@types/three": "~0.137.0",
+    "@webgpu/types": "~0.1.40"
+  },
   "devDependencies": {
-    "grunt": "~1.5.3"
+    "typescript": "~5.3.3",
+    "grunt": "~1.5.3",
+    "lodash": "~4.17.21"
   },
   "phet": {
     "supportedBrands": [

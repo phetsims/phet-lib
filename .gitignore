@@ -1,5 +1,7 @@
 .idea/
 build/
+third-party-licenses/
+src/
 node_modules/
 *.iml
 .DS_Store
