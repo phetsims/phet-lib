@@ -8,5 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
+import './preload';
+
 export * from '../src/sun/js/imports';
 export { default } from '../src/sun/js/sun';

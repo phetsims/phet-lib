@@ -8,5 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
+import './preload';
+
 export * from '../src/phet-core/js/imports';
 export { default } from '../src/phet-core/js/phetCore';

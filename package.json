@@ -45,6 +45,10 @@
       "module": "./js/phet-core.ts",
       "import": "./js/phet-core.ts"
     },
+    "./preload": {
+      "module": "./js/preload.ts",
+      "import": "./js/preload.ts"
+    },
     "./scenery": {
       "module": "./js/scenery.ts",
       "import": "./js/scenery.ts"

@@ -8,5 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
+import './preload';
+
 export * from '../src/axon/js/imports';
 export { default } from '../src/axon/js/axon';

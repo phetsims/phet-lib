@@ -8,5 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
+import './preload';
+
 export * from '../src/scenery/js/imports';
 export { default } from '../src/scenery/js/scenery';

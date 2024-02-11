@@ -8,5 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
+import './preload';
+
 export * from '../src/dot/js/imports';
 export { default } from '../src/dot/js/dot';

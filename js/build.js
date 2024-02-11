@@ -132,3 +132,40 @@ licensePaths.forEach( src => {
   const dest = `./third-party-licenses/${path.basename( src )}`;
   fs.cpSync( src, dest );
 } );
+
+// type=module compatibility ... lots of very hacky things for vite build to work, since the detection code in each
+// library seems to go absolutely haywire.
+const patch = ( file, before, after ) => {
+  const qsm = fs.readFileSync( file, 'utf-8' );
+  fs.writeFileSync( file, qsm.replace( before, after ) );
+};
+patch(
+  './src/query-string-machine/js/QueryStringMachine.js',
+  `}( this, () => {`,
+  `}( window, () => {`
+);
+patch(
+  './src/query-string-machine/js/QueryStringMachine.js',
+  `module.exports = factory();`,
+  `window.QueryStringMachine = factory();`
+);
+patch(
+  './src/sherpa/lib/he-1.1.1.js',
+  `}(this));`,
+  `}(window));`
+);
+patch(
+  './src/sherpa/lib/lodash-4.17.4.js',
+  `}.call(this));`,
+  `root._ = _;}.call(window));`
+);
+patch(
+  './src/sherpa/lib/himalaya-1.1.0.js',
+  `module.exports=f()`,
+  `window.himalaya=f()`
+);
+patch(
+  './src/sherpa/lib/jquery-2.1.0.js',
+  `module.exports = `,
+  `window.$ = `
+);
