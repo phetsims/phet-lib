@@ -174,3 +174,18 @@ patch(
   `}.call(this`,
   `}.call(window`
 );
+patch(
+  './src/sherpa/lib/paper-js-0.12.17.js',
+  `require('./node/extend.js')(paper);`,
+  ``
+);
+patch(
+  './src/sherpa/lib/paper-js-0.12.17.js',
+  `module.exports = `,
+  `window.paper = `
+);
+patch(
+  './src/sherpa/lib/paper-js-0.12.17.js',
+  `require('./node/self.js')`,
+  `window.self`
+);
