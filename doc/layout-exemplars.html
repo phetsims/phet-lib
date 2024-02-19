@@ -160,7 +160,8 @@
 
     <h3 id="WrapContent" class="index">Wrap Content</h3>
     <p>
-      Use <code>wrap: true</code> if you would like content in a FlowBox to wrap onto the next row or column if a string or other dynamic element becomes too long.
+      Use <code>wrap: true</code> if you would like content in a FlowBox to wrap onto the next row or column if a string
+      or other dynamic element becomes too long.
       This example shows a panel that acts as a type of legend. As the label width changes for one of the legend entries
       the others wrap accordingly.
     </p>
@@ -862,12 +863,16 @@
     </script>
 
     <h3 id="DynamicCentering" class="index">DynamicCentering</h3>
-    <p>This example comes from a use case in Greenhouse Effect. In this sim the developer was looking for a way to dynamically center a button in a play area Observation Window.
-      Manual Constraint became the perfect tool to accomplish this. By triggering a callback each time the bounds of the button changed, Manual Constraint created seamless centering
+    <p>This example comes from a use case in Greenhouse Effect. In this sim the developer was looking for a way to
+      dynamically center a button in a play area Observation Window.
+      Manual Constraint became the perfect tool to accomplish this. By triggering a callback each time the bounds of the
+      button changed, Manual Constraint created seamless centering
       based off of another node's layout bounds.</p>
 
-    <p>Use <code>ManualConstraint.create</code> to set up your custom positioning. The first argument is the ancestorNode (this node must be common to all
-      nodes we will be listening to). The second argument is an array of nodes you want to trigger the manual constraint and/or manipulate in the constraint. The third argument is a callback
+    <p>Use <code>ManualConstraint.create</code> to set up your custom positioning. The first argument is the
+      ancestorNode (this node must be common to all
+      nodes we will be listening to). The second argument is an array of nodes you want to trigger the manual constraint
+      and/or manipulate in the constraint. The third argument is a callback
       that will be triggered anytime the bounds of our nodes in the second argument change.
     </p>
     <div id="DynamicCentering-example"></div>
@@ -900,7 +905,6 @@
         } );
 
 
-
         scene.addChild( observationWindow );
         /*END*/
       } )
@@ -910,8 +914,10 @@
     <p>This example comes from a use case in Build a Nucleus</p>
 
     <h3 id="DynamicLabels" class="index">Dynamic Labels</h3>
-    <p>This example comes from a use case in Density. In this sim an arrow shows where a cube lands on the density spectrum. A label must accompany this arrow adding more clarity to to the data a user is seeing.
-      <code>ManualConstraint.create</code> allows developers to connect two separate nodes together so that when a node's x or y position changes another node can respond accordingly. </p>
+    <p>This example comes from a use case in Density. In this sim an arrow shows where a cube lands on the density
+      spectrum. A label must accompany this arrow adding more clarity to to the data a user is seeing.
+      <code>ManualConstraint.create</code> allows developers to connect two separate nodes together so that when a
+      node's x or y position changes another node can respond accordingly. </p>
 
     <div id="DynamicLabels-example"></div>
     <script>
@@ -928,9 +934,12 @@
         const parkedLabel = new Text( 'Parked', { font: new PhetFont( { size: 14, weight: 'bold' } ) } );
 
         const arrow = new ArrowNode( 0, -35, 0, -10 );
-        const label = new Text( 'Millenium Falcon', { font: new PhetFont( { size: 14, weight: 'bold' } ), centerY: -42 } );
+        const label = new Text( 'Millenium Falcon', {
+          font: new PhetFont( { size: 14, weight: 'bold' } ),
+          centerY: -42
+        } );
 
-        const speedHBox = new HBox( { children: [ parkedLabel, speedLine, hyperspeedLabel  ], spacing: 10 } );
+        const speedHBox = new HBox( { children: [ parkedLabel, speedLine, hyperspeedLabel ], spacing: 10 } );
         const speedNode = new Node( { children: [ label, arrow, speedHBox ] } );
 
         ManualConstraint.create( speedNode, [ label, arrow ], ( labelProxy, arrowProxy ) => {
@@ -954,9 +963,12 @@
     <h2 id="AlignGroup" class="index">Align Group</h2>
 
     <h3 id="CrossScreenAlignment" class="index">Cross Screen Alignment</h3>
-    <p>It is common for PhET sims to have panels that exist across multiple screens. These panels may have different content but a design standard is that
-    their width/height matches across those screens. This example shows how AlignGroup can easily accomplish this with little effort on the developer's part.
-    This example may require a bit of imagination. Imagine each Panel is located in a different screen, and notice how their widths and heights synchronize.</p>
+    <p>It is common for PhET sims to have panels that exist across multiple screens. These panels may have different
+      content but a design standard is that
+      their width/height matches across those screens. This example shows how AlignGroup can easily accomplish this with
+      little effort on the developer's part.
+      This example may require a bit of imagination. Imagine each Panel is located in a different screen, and notice how
+      their widths and heights synchronize.</p>
     <div id="CrossScreenAlignment-example"></div>
     <script>
       createSandbox( 'CrossScreenAlignment-example', ( scene, stepEmitter ) => {
@@ -1009,7 +1021,7 @@
 
         scene.addChild( new Node( { children: [ screen1, screen2 ] } ) );
         /*END*/
-      })
+      } )
     </script>
 
     <h2 id="Origin" class="index">Origin</h2>
