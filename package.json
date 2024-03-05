@@ -45,6 +45,10 @@
       "module": "./js/phet-core.ts",
       "import": "./js/phet-core.ts"
     },
+    "./phetcommon": {
+      "module": "./js/phetcommon.ts",
+      "import": "./js/phetcommon.ts"
+    },
     "./preload": {
       "module": "./js/preload.ts",
       "import": "./js/preload.ts"
@@ -53,9 +57,21 @@
       "module": "./js/scenery.ts",
       "import": "./js/scenery.ts"
     },
+    "./scenery-phet": {
+      "module": "./js/scenery-phet.ts",
+      "import": "./js/scenery-phet.ts"
+    },
     "./sun": {
       "module": "./js/sun.ts",
       "import": "./js/sun.ts"
+    },
+    "./tandem": {
+      "module": "./js/tandem.ts",
+      "import": "./js/tandem.ts"
+    },
+    "./twixt": {
+      "module": "./js/twixt.ts",
+      "import": "./js/twixt.ts"
     }
   },
   "dependencies": {
