@@ -10,5 +10,5 @@
 
 import './preload';
 
-export * from '../src/dot/js/imports';
+export * from './phet-lib-only-imports/do-not-import/use-direct-import-instead/dot';
 export { default } from '../src/dot/js/dot';

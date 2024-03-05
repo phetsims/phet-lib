@@ -10,5 +10,5 @@
 
 import './preload';
 
-export * from '../src/sun/js/imports';
+export * from './phet-lib-only-imports/do-not-import/use-direct-import-instead/sun';
 export { default } from '../src/sun/js/sun';

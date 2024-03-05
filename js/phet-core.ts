@@ -10,5 +10,5 @@
 
 import './preload';
 
-export * from '../src/phet-core/js/imports';
+export * from './phet-lib-only-imports/do-not-import/use-direct-import-instead/phet-core';
 export { default } from '../src/phet-core/js/phetCore';

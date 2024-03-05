@@ -7,6 +7,14 @@
  * Run as the following at the root of phet-lib:
  *
  * `node js/build.js`
+ *
+ * Use local references for testing (
+ *
+ * Then for publishing:
+ *
+ * `npm pack --dry-run` (to see what files will be included)
+ * `npm version patch` (or minor/major)
+ * `npm publish` (once ready)
  */
 
 /* eslint-disable */

@@ -10,5 +10,5 @@
 
 import './preload';
 
-export * from '../src/axon/js/imports';
+export * from './phet-lib-only-imports/do-not-import/use-direct-import-instead/axon';
 export { default } from '../src/axon/js/axon';
