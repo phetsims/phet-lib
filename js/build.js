@@ -163,6 +163,16 @@ patch(
   `}(window));`
 );
 patch(
+  './src/sherpa/lib/he-1.1.1.js',
+  `typeof define == 'function'`,
+  `false`
+);
+patch(
+  './src/sherpa/lib/he-1.1.1.js',
+  `freeExports && !freeExports.nodeType`,
+  `false`
+);
+patch(
   './src/sherpa/lib/lodash-4.17.4.js',
   `}.call(this));`,
   `root._ = _;}.call(window));`
