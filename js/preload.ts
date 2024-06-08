@@ -44,6 +44,14 @@ self.phet.chipper.strings = {
     }
   }
 };
+self.phet.chipper.localeData = {
+  "en": {
+    "locale3": "eng",
+    "englishName": "English",
+    "localizedName": "English",
+    "direction": "ltr"
+  }
+};
 
 import '../src/sherpa/lib/jquery-2.1.0.js';
 import '../src/sherpa/lib/paper-js-0.12.17.js';

@@ -29,8 +29,8 @@ export { default as PhetFont } from '../../../../src/scenery-phet/js/PhetFont.js
 export { default as PlayStopButton } from '../../../../src/scenery-phet/js/buttons/PlayStopButton.js';
 export type { PlayStopButtonOptions } from '../../../../src/scenery-phet/js/buttons/PlayStopButton.js';
 export { default as ShadedRectangle } from '../../../../src/scenery-phet/js/ShadedRectangle.js';
-export { default as RichDragListener } from '../../../../src/scenery-phet/js/RichDragListener.js';
-export type { RichDragListenerOptions } from '../../../../src/scenery-phet/js/RichDragListener.js';
+export { default as RichDragListener } from '../../../../src/scenery-phet/js/RichKeyboardDragListener.js';
+export type { RichKeyboardDragListenerOptions } from '../../../../src/scenery-phet/js/RichKeyboardDragListener.js';
 export type { ShadedRectangleOptions } from '../../../../src/scenery-phet/js/ShadedRectangle.js';
 export { default as ShadedSphereNode } from '../../../../src/scenery-phet/js/ShadedSphereNode.js';
 export type { ShadedSphereNodeOptions } from '../../../../src/scenery-phet/js/ShadedSphereNode.js';
