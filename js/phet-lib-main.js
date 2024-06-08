@@ -29,10 +29,10 @@ import '../../twixt/js/main.js';
 import '../../utterance-queue/js/main.js';
 import '../../vegas/js/main.js';
 
-if ( !window.hasOwnProperty( '_' ) ) {
+if ( !self.hasOwnProperty( '_' ) ) {
   throw new Error( 'Underscore/Lodash not found: _' );
 }
-if ( !window.hasOwnProperty( '$' ) ) {
+if ( !self.hasOwnProperty( '$' ) ) {
   throw new Error( 'jQuery not found: $' );
 }
 

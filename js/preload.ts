@@ -1,11 +1,10 @@
+import './minimal-preload';
 
-window.phet = window.phet || {};
-window.phet.chipper = window.phet.chipper || {};
-window.phet.chipper.packageObject =
+self.phet.chipper.packageObject =
   {
     "name": "scenery-lab-demo",
   };
-window.phet.chipper.stringRepos = [
+self.phet.chipper.stringRepos = [
   {
     "repo": "joist",
     "requirejsNamespace": "JOIST"
@@ -27,7 +26,7 @@ window.phet.chipper.stringRepos = [
     "requirejsNamespace": "VEGAS"
   }
 ];
-window.phet.chipper.strings = {
+self.phet.chipper.strings = {
   en: {
     "a11y": {
       "numberSpinnerRoleDescription": {
@@ -47,14 +46,6 @@ window.phet.chipper.strings = {
 };
 
 import '../src/sherpa/lib/jquery-2.1.0.js';
-import '../src/sherpa/lib/lodash-4.17.4.js';
-import '../src/tandem/js/PhetioIDUtils.js';
-import '../src/sherpa/lib/linebreak-1.1.0.js';
-import '../src/sherpa/lib/flatqueue-1.2.1.js';
 import '../src/sherpa/lib/paper-js-0.12.17.js';
-import '../src/sherpa/lib/he-1.1.1.js';
-import '../src/sherpa/lib/TextEncoderLite-3c9f6f0.js';
-import '../src/sherpa/lib/base64-js-1.2.0.js';
 import '../src/query-string-machine/js/QueryStringMachine.js';
 import '../src/sherpa/lib/himalaya-1.1.0.js';
-import '../src/assert/js/assert.js';

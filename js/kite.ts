@@ -8,7 +8,7 @@
 /* eslint-disable */
 // @ts-nocheck
 
-import './preload';
+import './minimal-preload';
 
 export * from '../src/kite/js/imports';
 export { default } from '../src/kite/js/kite';

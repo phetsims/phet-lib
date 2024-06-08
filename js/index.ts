@@ -12,4 +12,4 @@ import './preload';
 
 import '../src/phet-core/js/phetCore';
 
-export default window.phet;
+export default self.phet;
