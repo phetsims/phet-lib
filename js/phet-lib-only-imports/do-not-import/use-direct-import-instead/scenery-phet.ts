@@ -34,4 +34,6 @@ export type { RichKeyboardDragListenerOptions } from '../../../../src/scenery-ph
 export type { ShadedRectangleOptions } from '../../../../src/scenery-phet/js/ShadedRectangle.js';
 export { default as ShadedSphereNode } from '../../../../src/scenery-phet/js/ShadedSphereNode.js';
 export type { ShadedSphereNodeOptions } from '../../../../src/scenery-phet/js/ShadedSphereNode.js';
+export { default as SpinningIndicatorNode } from '../../../../src/scenery-phet/js/SpinningIndicatorNode.js';
+export type { SpinningIndicatorNodeOptions } from '../../../../src/scenery-phet/js/SpinningIndicatorNode.js';
 export { default as sceneryPhet } from '../../../../src/scenery-phet/js/sceneryPhet.js';
