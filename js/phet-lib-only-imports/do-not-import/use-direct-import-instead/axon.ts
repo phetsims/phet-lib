@@ -59,7 +59,7 @@ export { default as TinyEmitter } from '../../../../src/axon/js/TinyEmitter.js';
 export { default as TinyForwardingProperty } from '../../../../src/axon/js/TinyForwardingProperty.js';
 export { default as TinyOverrideProperty } from '../../../../src/axon/js/TinyOverrideProperty.js';
 export { default as TinyProperty } from '../../../../src/axon/js/TinyProperty.js';
-export type { ComparableObject, TinyPropertyEmitterParameters, TinyPropertyOnBeforeNotify } from '../../../../src/axon/js/TinyProperty.js';
+export type { TinyPropertyEmitterParameters, TinyPropertyOnBeforeNotify } from '../../../../src/axon/js/TinyProperty.js';
 export { default as TinyStaticProperty } from '../../../../src/axon/js/TinyStaticProperty.js';
 export { isTProperty } from '../../../../src/axon/js/TProperty.js';
 export type { default as TProperty } from '../../../../src/axon/js/TProperty.js';
