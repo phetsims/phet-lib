@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outFile": "axon.d.ts"
+  },
+  "extends": "./tsconfig-base.json",
+  "include": [
+    "../js/axon.ts"
+  ]
+}

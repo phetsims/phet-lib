@@ -207,3 +207,8 @@ patch(
   `require('./node/self.js')`,
   `window.self`
 );
+patch(
+  './src/sherpa/lib/big-6.2.1.mjs',
+  `export var Big = _Big_();`,
+  `/**\n * @type Class\n */\nexport var Big = _Big_();`
+);
