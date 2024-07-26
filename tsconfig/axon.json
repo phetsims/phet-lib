@@ -1,4 +1,5 @@
 {
+  // from phet-lib/tsconfig, run `../../chipper/node_modules/typescript/bin/tsc --project axon.json --declaration --emitDeclarationOnly`
   "compilerOptions": {
     "outFile": "axon.d.ts"
   },
