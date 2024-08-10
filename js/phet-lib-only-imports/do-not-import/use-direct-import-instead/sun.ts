@@ -102,7 +102,7 @@ export { default as ButtonInteractionState } from '../../../../src/sun/js/button
 export { default as ButtonModel } from '../../../../src/sun/js/buttons/ButtonModel.js';
 export type { ButtonModelOptions } from '../../../../src/sun/js/buttons/ButtonModel.js';
 export { default as ButtonNode } from '../../../../src/sun/js/buttons/ButtonNode.js';
-export type { ButtonNodeOptions, ExternalButtonNodeOptions, FlatAppearanceStrategy } from '../../../../src/sun/js/buttons/ButtonNode.js';
+export type { ButtonNodeOptions, FlatAppearanceStrategy } from '../../../../src/sun/js/buttons/ButtonNode.js';
 export { default as CarouselButton } from '../../../../src/sun/js/buttons/CarouselButton.js';
 export type { CarouselButtonOptions } from '../../../../src/sun/js/buttons/CarouselButton.js';
 export { default as MomentaryButtonInteractionStateProperty } from '../../../../src/sun/js/buttons/MomentaryButtonInteractionStateProperty.js';
