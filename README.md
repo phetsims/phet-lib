@@ -5,7 +5,9 @@ Contains built versions of PhET common code libraries.
 
 ### Building the standalone phet-lib.js
 
-`grunt --noTSC`
+`grunt`
+
+This will place the built files in the build/ directory. Copy them over to the dist/ directory if you want to publish them.
 
 ### Building the phet-lib NPM package
 
