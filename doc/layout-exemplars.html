@@ -161,9 +161,42 @@
       } );
     </script>
 
-    <h3 id="MatchButtonWidths" class="index">Match Button Widths</h3>
+    <h3 id="MatchButtonSizes" class="index">Match Button Sizes</h3>
+
+    <p>
+      AlignGroup can be used to match the sizes of Nodes in a layout, and the <code>align:stretch</code> option can be
+      used on sizable content (e.g. buttons) to make them match the size of the largest button.
+    </p>
+    <div id="MatchButtonSizes-example"></div>
+
+    <script>
+      createSandbox( 'MatchButtonSizes-example', ( scene, stepEmitter ) => {
+        // import scenery-phet/js/PhetFont
+        // import sun/js/buttons/TextPushButton
+
+        /*START*/
+        const buttonOptions = { font: new PhetFont( 14 ) };
+        const leftButton = new TextPushButton( 'Left', buttonOptions );
+        const middleButton = new TextPushButton( 'Middle', buttonOptions );
+        const rightButton = new TextPushButton( 'Right', buttonOptions );
+
+        const alignGroup = new AlignGroup( [ leftButton, middleButton, rightButton ] );
+
+        const buttonBox = new HBox( {
+          spacing: 10,
+          children: [
+            alignGroup.createBox( leftButton, { align: 'stretch' } ),
+            alignGroup.createBox( middleButton, { align: 'stretch' } ),
+            alignGroup.createBox( rightButton, { align: 'stretch' } )
+          ]
+        } );
+        scene.addChild( buttonBox );
+        /*END*/
+      } );
+    </script>
 
     <h3 id="WrapContent" class="index">Wrap Content</h3>
+
     <p>
       Use <code>wrap: true</code> if you would like content in a FlowBox to wrap onto the next row or column if a string
       or other dynamic element becomes too long.
