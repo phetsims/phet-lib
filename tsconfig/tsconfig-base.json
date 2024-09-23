@@ -64,8 +64,8 @@
     "forceConsistentCasingInFileNames": true        /* Disallow inconsistently-cased references to the same file. */
   },
   "exclude": [
-    "../src/sherpa/lib/big-6.2.1.mjs",
-    "../src/sherpa/lib/big-6.2.1.mjs",
+    "../src/sherpa/lib/big-6.2.1.js",
+    "../src/sherpa/lib/big-6.2.1.js",
     "../src/sherpa/lib/big-6.2.1",
     "src/sherpa/lib/big-6.2.1"
   ],

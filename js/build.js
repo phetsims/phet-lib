@@ -82,7 +82,7 @@ const licenseJSON = JSON.parse( fs.readFileSync( '../sherpa/lib/license.json', '
 const requiredLibs = _.uniq( [
   ...Object.values( webpackGlobalLibraries ),
   ...buildJSON.common.preload,
-  'sherpa/lib/big-6.2.1.mjs', // hah, dot Utils...
+  'sherpa/lib/big-6.2.1.js', // hah, dot Utils...
   'sherpa/lib/font-awesome-4.5.0' // manual inclusion of fontawesome-4 license
 ].filter( str => str.includes( 'sherpa' ) ).map( str => path.basename ( str ) ) );
 
@@ -208,7 +208,7 @@ patch(
   `window.self`
 );
 patch(
-  './src/sherpa/lib/big-6.2.1.mjs',
+  './src/sherpa/lib/big-6.2.1.js',
   `export var Big = _Big_();`,
   `/**\n * @type Class\n */\nexport var Big = _Big_();`
 );
