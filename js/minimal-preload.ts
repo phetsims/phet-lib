@@ -1,4 +1,3 @@
-
 self.phet = self.phet || {};
 self.phet.chipper = self.phet.chipper || {};
 
