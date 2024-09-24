@@ -118,18 +118,6 @@
     "extends": "../chipper/eslint/sim_eslintrc.js",
     "ignorePatterns": [
       "**/**"
-    ],
-    "overrides": [
-      {
-        "files": [
-          "**/*.ts"
-        ],
-        "parserOptions": {
-          "project": [
-            "../chipper/tsconfig/eslint-all/tsconfig.json"
-          ]
-        }
-      }
     ]
   }
 }
