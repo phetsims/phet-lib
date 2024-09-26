@@ -113,11 +113,5 @@
       "../chipper/js/initialize-globals.js"
     ],
     "supportsOutputJS": true
-  },
-  "eslintConfig": {
-    "extends": "../chipper/eslint/sim_eslintrc.js",
-    "ignorePatterns": [
-      "**/**"
-    ]
   }
 }
