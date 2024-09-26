@@ -6,7 +6,7 @@
  * @author Jonathan Olson <jonathan.olson@colorado.edu>
  */
 
-/* eslint-disable default-import-match-filename,no-unused-vars,bad-sim-text */
+/* eslint-disable phet/default-import-match-filename,no-unused-vars,bad-sim-text */
 
 import axon from '../../axon/js/main.js';
 import dot from '../../dot/js/main.js';
