@@ -35,7 +35,6 @@ export { default as identity } from '../../../../src/phet-core/js/identity.js';
 export { default as inheritance } from '../../../../src/phet-core/js/inheritance.js';
 export { default as interleave } from '../../../../src/phet-core/js/interleave.js';
 export { default as isArray } from '../../../../src/phet-core/js/isArray.js';
-export { default as isHMR } from '../../../../src/phet-core/js/isHMR.js';
 export { default as loadScript } from '../../../../src/phet-core/js/loadScript.js';
 export { default as logGlobal } from '../../../../src/phet-core/js/logGlobal.js';
 export { default as memoize } from '../../../../src/phet-core/js/memoize.js';
