@@ -20,9 +20,9 @@
 /* eslint-disable */
 
 import fs from 'fs';
+import _ from 'lodash';
 import path from 'path';
 import { default as webpackGlobalLibraries } from '../../chipper/js/common/webpackGlobalLibraries.js';
-import _ from 'lodash';
 
 const wipeDir = ( dirname ) => {
   if ( fs.existsSync( `./${dirname}` ) ) {
