@@ -39,7 +39,6 @@ export { default as loadScript } from '../../../../src/phet-core/js/loadScript.j
 export { default as logGlobal } from '../../../../src/phet-core/js/logGlobal.js';
 export { default as memoize } from '../../../../src/phet-core/js/memoize.js';
 export { default as merge } from '../../../../src/phet-core/js/merge.js';
-export { default as MipmapElement } from '../../../../src/phet-core/js/MipmapElement.js';
 export { default as mutate } from '../../../../src/phet-core/js/mutate.js';
 export { default as Namespace } from '../../../../src/phet-core/js/Namespace.js';
 export { default as optionize, optionize3, optionize4, combineOptions } from '../../../../src/phet-core/js/optionize.js';
