@@ -20,7 +20,7 @@ import '../../nitroglycerin/js/main.js';
 import '../../phet-core/js/main.js';
 import '../../phetcommon/js/main.js';
 import '../../scenery-phet/js/main.js';
-import '../../scenery/js/imports.js';
+import '../../scenery/js/main.js';
 import '../../sun/js/main.js';
 import '../../tambo/js/main.js';
 import '../../tandem/js/main.js';
