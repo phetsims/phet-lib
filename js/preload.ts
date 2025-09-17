@@ -1,5 +1,4 @@
 import './minimal-preload';
-import '../src/sherpa/lib/jquery-2.1.0.js';
 import '../src/sherpa/lib/paper-js-0.12.17.js';
 import '../src/query-string-machine/js/QueryStringMachine.js';
 import '../src/sherpa/lib/himalaya-1.1.0.js';

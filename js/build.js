@@ -183,11 +183,6 @@ patch(
   `window.himalaya=f()`
 );
 patch(
-  './src/sherpa/lib/jquery-2.1.0.js',
-  `module.exports = `,
-  `window.$ = `
-);
-patch(
   './src/sherpa/lib/paper-js-0.12.17.js',
   `}.call(this`,
   `}.call(window`
