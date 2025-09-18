@@ -96,7 +96,6 @@
     "requirejsNamespace": "PHET_LIB",
     "buildStandalone": true,
     "requiresLodash": false,
-    "requiresJQuery": false,
     "finalizeJS": "scenery.Utils.polyfillRequestAnimationFrame();",
     "preload": [
       "../sherpa/lib/lodash-4.17.4.min.js",

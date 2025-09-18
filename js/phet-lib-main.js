@@ -32,8 +32,5 @@ import '../../vegas/js/main.js';
 if ( !self.hasOwnProperty( '_' ) ) {
   throw new Error( 'Underscore/Lodash not found: _' );
 }
-if ( !self.hasOwnProperty( '$' ) ) {
-  throw new Error( 'jQuery not found: $' );
-}
 
 phet.scenery.Utils.polyfillRequestAnimationFrame();
