@@ -3,7 +3,7 @@
 /**
  * Used by the manually-built phet-lib package.
  *
- * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ * @author Jonathan Olson (PhET Interactive Simulations)
  */
 
 /* eslint-disable phet/default-import-match-filename,no-unused-vars,bad-sim-text */

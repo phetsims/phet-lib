@@ -3,7 +3,7 @@
 /**
  * Used by the manually-built phet-lib package.
  *
- * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ * @author Jonathan Olson (PhET Interactive Simulations)
  */
 
 // NOTE: Not including mobius, since it requires THREE.js

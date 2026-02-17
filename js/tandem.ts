@@ -2,7 +2,7 @@
 
 /**
  * Exports for under /tandem
- * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ * @author Jonathan Olson (PhET Interactive Simulations)
  */
 
 /* eslint-disable */

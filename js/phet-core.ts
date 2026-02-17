@@ -2,7 +2,7 @@
 
 /**
  * Exports for under /phet-core
- * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ * @author Jonathan Olson (PhET Interactive Simulations)
  */
 
 /* eslint-disable */

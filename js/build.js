@@ -2,7 +2,7 @@
 
 /**
  * Copies the PhET sources into place under src/, so that it can make a functional NPM package.
- * @author Jonathan Olson <jonathan.olson@colorado.edu>
+ * @author Jonathan Olson (PhET Interactive Simulations)
  *
  * Run as the following at the root of phet-lib:
  *
